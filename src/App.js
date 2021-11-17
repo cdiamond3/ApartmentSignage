@@ -1,13 +1,16 @@
 import "./App.css";
 import { useState } from "react";
-import { initializeApp } from "@firebase/app";
+// import { initializeApp } from "@firebase/app";
+import firebase from "./firebase/firebase"
+import 'firebase/storage';
+
 
 function App() {
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
   const [downloadUrl, setDownloadUrl] = useState(null);
 
-  let firebase = initializeApp;
+  
 
   const handleChange = (e) => {
     setImage(e.target.files[0]);
@@ -43,23 +46,24 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h4>upload image</h4>
-        <label>
-          Choose file
-          <input type="file" id="file" onChange={handleChange} />
-        </label>
+        <h1> Apartment Signage Creator </h1>
 
-        {progress}
-        <button className="button" onClick={handleUpload}>
-          Upload
-        </button>
+        <div className="labelsContainer">
+          <input type="file" id="file" onChange={handleChange} />
+
+          {progress}
+        </div>
+
         <img
           className="ref"
-          src={downloadUrl || "https://via.placeholder.com/400x300"}
+          src={ downloadUrl || "https://via.placeholder.com/400x300"}
           alt="Uploaded Images"
           height="300"
           width="400"
         />
+      <button className="button" onClick={handleUpload}>
+        Upload
+      </button>
       </div>
     </div>
   );

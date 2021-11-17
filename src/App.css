@@ -5,3 +5,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.labelsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 25rem;
+  background-color: lightblue;
+  border: black;
+  cursor: pointer;
+}
