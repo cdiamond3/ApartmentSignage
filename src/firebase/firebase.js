@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-
+import { getFirestore } from "firebase/firestore"
 
 export default function firebaseImageUpload() {
   const firebaseConfig = {
@@ -13,5 +13,5 @@ export default function firebaseImageUpload() {
   };
   
   const app = initializeApp(firebaseConfig);
-//   const db = getFirestore(app);
+  const db = getFirestore(app);
 }
